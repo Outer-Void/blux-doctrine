@@ -1,0 +1,23 @@
+rules:
+  - id: RT-001
+    pillar: resilience
+    match:
+      tags: ["exploit"]
+    decision:
+      outcome: "deny"
+      score: 1.0
+      reasons:
+        - "Red-team scenario flagged as exploit attempt."
+      remediation:
+        - "Route to red-team coordinator."
+  - id: RT-002
+    pillar: responsibility
+    match:
+      action: "audit.delete"
+    decision:
+      outcome: "deny"
+      score: 0.95
+      reasons:
+        - "Audit log deletion attempts are blocked."
+      remediation:
+        - "Engage compliance officer."

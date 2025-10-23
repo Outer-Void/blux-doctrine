@@ -1,0 +1,10 @@
+rules:
+  - id: SAMPLE
+    pillar: stability
+    match:
+      action: "read"
+    decision:
+      outcome: "allow"
+      score: 0.1
+      reasons:
+        - "Fixture policy"

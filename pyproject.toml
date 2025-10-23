@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=67", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "blux-doctrine"
+version = "0.1.0"
+description = "BLUX Doctrine — Policy, Ethics, and Validation Core for the BLUX ecosystem"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Apache-2.0" }
+authors = [{ name = "BLUX", email = "ops@blux.systems" }]
+keywords = ["policy", "ethics", "security", "compliance", "blux"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: Apache Software License",
+  "Intended Audience :: Developers",
+  "Environment :: Console",
+  "Topic :: Security",
+]
+dependencies = [
+  "pydantic>=2.7.0",
+  "pyyaml>=6.0.1",
+  "typer>=0.12.3",
+  "rich>=13.7.0",
+  "jsonschema>=4.21.0",
+  "sqlite-utils>=3.36",
+  "prometheus-client>=0.20.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "mypy", "ruff", "pre-commit", "mkdocs-material"]
+
+[project.entry-points."blux.plugins"]
+doctrine = "blux_doctrine.cli:get_app"
+
+[tool.setuptools.packages.find]
+include = ["blux_doctrine"]

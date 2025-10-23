@@ -1,0 +1,7 @@
+{
+  "action": "shell.exec",
+  "risk": ["high"],
+  "fields": [],
+  "tags": ["maintenance"],
+  "capabilities": []
+}
