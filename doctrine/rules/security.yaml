@@ -1,0 +1,25 @@
+rules:
+  - id: SEC-001
+    pillar: stability
+    match:
+      action: "shell.exec"
+      risk: ["high"]
+    decision:
+      outcome: "review"
+      score: 0.35
+      reasons:
+        - "High-risk shell execution; operator approval required."
+      remediation:
+        - "Run within sandbox profile 'dev-secure'."
+        - "Disable outbound network in session."
+  - id: SEC-002
+    pillar: resilience
+    match:
+      action: "code.deploy"
+    decision:
+      outcome: "review"
+      score: 0.5
+      reasons:
+        - "Deployment requests must include rollback plan."
+      remediation:
+        - "Attach automated rollback steps."

@@ -1,0 +1,22 @@
+rules:
+  - id: PRIV-001
+    pillar: responsibility
+    match:
+      action: "user.export"
+    decision:
+      outcome: "review"
+      score: 0.45
+      reasons:
+        - "User exports require privacy sign-off."
+      remediation:
+        - "Ensure consent records are attached."
+  - id: PRIV-002
+    pillar: transparency
+    match:
+      action: "analytics.query"
+      risk: ["medium"]
+    decision:
+      outcome: "allow"
+      score: 0.2
+      reasons:
+        - "Analytics queries permitted with anonymization."
