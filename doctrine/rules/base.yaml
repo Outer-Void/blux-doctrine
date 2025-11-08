@@ -1,0 +1,21 @@
+rules:
+  - id: BASE-ALLOW-001
+    pillar: stability
+    match:
+      action: "read"
+    decision:
+      outcome: "allow"
+      score: 0.1
+      reasons:
+        - "Read operations are generally safe."
+  - id: BASE-REVIEW-001
+    pillar: transparency
+    match:
+      action: "report.generate"
+    decision:
+      outcome: "review"
+      score: 0.4
+      reasons:
+        - "Reports must undergo review before publication."
+      remediation:
+        - "Submit to compliance queue."
